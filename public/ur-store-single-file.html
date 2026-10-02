@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>سوق أور العراقي | UR Store - Multi-Vendor Marketplace</title>
+  <meta name="description" content="منصة سوق أور متعددة التجار في العراق - تسوق من أفضل المتاجر والبيجات مع خدمة الدفع عند الاستلام والتوصيل لكافة المحافظات الـ 18">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Cairo & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+    }
+    .font-brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#F8F9FA] text-[#1E293B] antialiased min-h-screen flex flex-col selection:bg-amber-500 selection:text-white">
+
+  <!-- Announcement & Trust Header -->
+  <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4 text-center font-medium shadow-inner">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap">
+        <span>🚚 توصيل سريع لجميع محافظات العراق الـ 18</span>
+        <span class="hidden sm:inline">|</span>
+        <span class="hidden sm:inline">💵 الدفع نقداً عند الاستلام (COD)</span>
+        <span class="hidden md:inline">|</span>
+        <span class="hidden md:inline">🛡️ معاينة وفحص الطرد قبل الدفع</span>
+      </div>
+      <div class="text-amber-400 font-bold text-[11px] shrink-0">
+        سوق أور متعدد التجار والبيجات 🛍️
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-3 sm:gap-4">
+      <!-- Brand Title -->
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="#" class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 font-black text-xl flex items-center justify-center shadow-sm font-brand">
+            UR
+          </div>
+          <div>
+            <h1 class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-none">
+              UR Store
+            </h1>
+            <span class="text-[11px] font-semibold text-slate-500">سوق أور العراقي</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="flex-1 max-w-md mx-2">
+        <div class="relative">
+          <input 
+            id="searchInput" 
+            type="text" 
+            placeholder="ابحث عن منتج، متجر، أو تصنيف..."
+            class="w-full bg-slate-100/90 text-slate-900 text-xs sm:text-sm rounded-xl py-2 pr-9 pl-4 border border-transparent focus:border-amber-500 focus:bg-white focus:outline-none transition-all"
+          />
+          <svg class="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Actions: Reseller & Merchant Buttons -->
+      <div class="flex items-center gap-2 shrink-0">
+        <button 
+          onclick="openResellerModal()"
+          class="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-[#121316] hover:bg-[#1a1c22] text-amber-300 border border-amber-500/40 rounded-xl text-xs sm:text-sm font-extrabold transition-all shadow-xs active:scale-95"
+          title="انضم كمسوق بالعمولة (مندوب) واربح بدون رأس مال"
+        >
+          <span>✨ كن مسوقاً (مندوب)</span>
+        </button>
+
+        <button 
+          onclick="openMerchantModal()"
+          class="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-amber-50 hover:bg-amber-100 text-amber-950 border border-amber-300 rounded-xl text-xs sm:text-sm font-extrabold transition-all shadow-xs active:scale-95"
+        >
+          <svg class="w-4 h-4 text-amber-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+          <span class="hidden sm:inline">سجّل كتاجر / أضف منتجك</span>
+          <span class="sm:hidden">أضف منتجك</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section & Merchant Invitation -->
+  <section class="bg-gradient-to-b from-white to-slate-50 border-b border-slate-200 py-8 sm:py-12 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+      <div class="lg:col-span-7 space-y-3.5 text-right">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold">
+          <span>✨ المنصة العراقية الأولى للبيجات والتجار</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
+          تسوق من أشهر المتاجر والبيجات مع الدفع عند الاستلام
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
+          سوق متكامل يجمع أحدث الأزياء، مستحضرات التجميل الأصلية، وأحدث الإلكترونيات بأسعار موثوقة بالدينار العراقي، مع تأكيد فوري وتوجيه كابتن التوصيل.
+        </p>
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="#productsSection" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs sm:text-sm font-bold transition-all shadow-sm">
+            تصفح تشكيلة السوق
+          </a>
+          <button onclick="openMerchantModal()" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black rounded-xl text-xs sm:text-sm transition-all shadow-sm">
+            🏪 سجل متجرك وأضف منتجاتك مجاناً
+          </button>
+        </div>
+      </div>
+
+      <!-- Merchant Info Banner Card -->
+      <div class="lg:col-span-5 bg-white p-5 rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/60 space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
+            تجار موثوقون ومعتمدون
+          </span>
+          <span class="text-xs text-slate-500">18 محافظة</span>
+        </div>
+        <h3 class="text-base font-black text-slate-900">
+          هل تملك بيج على إنستغرام أو متجراً محلياً؟
+        </h3>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          انضم إلى شبكة تجار UR Store، اعرض منتجاتك للزبائن في كافة المحافظات العراقية، وسيتولى كباتن الشحن الاستلام من مخزنك والتسليم للمشتري مباشرة.
+        </p>
+        <button onclick="openMerchantModal()" class="w-full py-2.5 px-4 bg-slate-900 hover:bg-slate-800 text-amber-400 font-bold rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+          <span>+ إضافة منتج جديد إلى السوق الآن</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main id="productsSection" class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full">
+    <!-- Categories Filter Bar -->
+    <div class="mb-6 space-y-3">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-950">منتجات السوق المعروضة</h2>
+          <p class="text-xs text-slate-500">اختر التصنيف أو ابحث عن التاجر المناسب</p>
+        </div>
+        <div id="newBadgeCount" class="hidden text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold px-3 py-1.5 rounded-xl">
+          تمت إضافة منتجات من تجار جدد
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2">
+        <button onclick="setCategory('all')" id="btn-all" class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-slate-900 text-white shadow-sm border border-slate-900">
+          جميع المنتجات (<span id="count-all">8</span>)
+        </button>
+        <button onclick="setCategory('fashion')" id="btn-fashion" class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+          أزياء وملابس (<span id="count-fashion">2</span>)
+        </button>
+        <button onclick="setCategory('beauty')" id="btn-beauty" class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+          جمال وعناية بالبشرة (<span id="count-beauty">2</span>)
+        </button>
+        <button onclick="setCategory('home')" id="btn-home" class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+          المنزل والمطبخ (<span id="count-home">2</span>)
+        </button>
+        <button onclick="setCategory('electronics')" id="btn-electronics" class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+          إلكترونيات (<span id="count-electronics">2</span>)
+        </button>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Dynamically populated -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-300 py-10 mt-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center space-y-3">
+      <div class="text-xl font-bold text-white flex items-center justify-center gap-2">
+        <span class="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 font-black flex items-center justify-center text-sm font-brand">UR</span>
+        <span>UR Store · سوق أور العراقي متعدد التجار</span>
+      </div>
+      <p class="text-xs text-slate-400">التوصيل متاح لكافة محافظات العراق الـ 18 · الدفع نقداً عند استلام الشحنة وتأكيد فوري عبر الواتساب</p>
+      <p class="text-xs text-slate-500">© 2026 UR Multi-Vendor Marketplace Iraq. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <!-- Fast Customer Checkout Modal (Iraqi Market Specifics with Merchant Information) -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-sm overflow-y-auto">
+    <div class="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-auto max-h-[92vh] flex flex-col">
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50 shrink-0">
+        <div>
+          <h3 class="text-base font-bold text-slate-900">طلب المنتج السريع (الدفع عند الاستلام)</h3>
+          <p class="text-xs text-slate-500">توصيل لكافة محافظات العراق الـ 18 عبر الواتساب</p>
+        </div>
+        <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-700 flex items-center justify-center font-bold">
+          ✕
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 overflow-y-auto space-y-5 flex-1">
+        <!-- Selected Product & Vendor Summary -->
+        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 space-y-3">
+          <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+            <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-slate-200 shrink-0 border border-slate-200">
+              <img id="modalProductImg" src="" alt="" class="w-full h-full object-cover">
+              <!-- Mini Carousel Arrows -->
+              <div id="modalGalleryNav" class="hidden">
+                <button type="button" onclick="cycleModalImage(-1)" class="absolute right-1 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center text-[10px]">›</button>
+                <button type="button" onclick="cycleModalImage(1)" class="absolute left-1 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center text-[10px]">‹</button>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4 id="modalProductTitle" class="text-sm font-bold text-slate-900 truncate"></h4>
+              <div class="flex items-center gap-2 mt-1">
+                <span id="modalProductPrice" class="text-sm font-extrabold text-slate-950 font-mono"></span>
+                <span class="text-xs text-slate-400">·</span>
+                <span id="modalProductCategory" class="text-xs text-slate-500"></span>
+              </div>
+              <!-- Modal Multi-Image Thumbnails Strip (Up to 5) -->
+              <div id="modalThumbnailsRow" class="flex items-center gap-1.5 mt-2 overflow-x-auto no-scrollbar"></div>
+            </div>
+          </div>
+          <!-- Merchant / Vendor Line -->
+          <div class="pt-2 border-t border-slate-200/70 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-1.5 text-slate-700 font-medium">
+              <span>🏪 التاجر / البيج:</span>
+              <span id="modalVendorName" class="font-bold text-amber-700"></span>
+            </div>
+            <span id="modalVendorCity" class="text-slate-500 font-mono text-[11px]"></span>
+          </div>
+        </div>
+
+        <!-- Iraqi Specific Customer Form -->
+        <div class="space-y-3.5">
+          <!-- Full Name -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكامل <span class="text-red-500">*</span></label>
+            <input id="formFullName" type="text" placeholder="مثال: علي محمد العبيدي" class="w-full text-sm rounded-xl py-2.5 px-3 border border-slate-200 bg-slate-50 focus:bg-white focus:border-amber-500 focus:outline-none">
+          </div>
+
+          <!-- Phone Number -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف (07xx) للتواصل <span class="text-red-500">*</span></label>
+            <input id="formPhone" dir="ltr" type="tel" placeholder="0770 123 4567" class="w-full text-sm rounded-xl py-2.5 px-3 border border-slate-200 bg-slate-50 focus:bg-white focus:border-amber-500 focus:outline-none font-mono">
+            <span class="text-[11px] text-slate-400 mt-1 block">يتصل بك مندوب الشحن على هذا الرقم لتأكيد موعد الاستلام</span>
+          </div>
+
+          <!-- 18 Iraqi Governorates Dropdown -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">المحافظة (كافة محافظات العراق الـ 18) <span class="text-red-500">*</span></label>
+            <select id="formGovernorate" onchange="updateDeliveryFee()" class="w-full text-sm rounded-xl py-2.5 px-3 border border-slate-200 bg-slate-50 focus:bg-white focus:border-amber-500 focus:outline-none font-semibold cursor-pointer">
+              <!-- Dynamically populated with all 18 governorates -->
+            </select>
+          </div>
+
+          <!-- Detailed Address -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">العنوان بالتفصيل <span class="text-red-500">*</span></label>
+            <input id="formAddress" type="text" placeholder="مثال: الكرادة، محلة 903، زقاق 12، مجاور جامع..." class="w-full text-sm rounded-xl py-2.5 px-3 border border-slate-200 bg-slate-50 focus:bg-white focus:border-amber-500 focus:outline-none">
+          </div>
+
+          <!-- Nearest Landmark -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">أقرب نقطة دالة <span class="text-red-500">*</span></label>
+            <input id="formLandmark" type="text" placeholder="مثال: خلف صيدلية دجلة / قرب مدرسة..." class="w-full text-sm rounded-xl py-2.5 px-3 border border-slate-200 bg-slate-50 focus:bg-white focus:border-amber-500 focus:outline-none">
+          </div>
+        </div>
+
+        <!-- Calculation & COD Badge -->
+        <div class="bg-amber-50/70 p-3.5 rounded-2xl border border-amber-200/80 space-y-1.5 text-xs">
+          <div class="flex justify-between text-slate-600">
+            <span>سعر المنتج:</span>
+            <span id="summaryProductPrice" class="font-bold font-mono">0 د.ع</span>
+          </div>
+          <div class="flex justify-between text-slate-600">
+            <span>أجور التوصيل:</span>
+            <span id="summaryDeliveryFee" class="font-bold font-mono">0 د.ع</span>
+          </div>
+          <div class="flex justify-between text-sm font-extrabold text-slate-900 pt-1.5 border-t border-amber-200">
+            <span>المبلغ الإجمالي عند الاستلام:</span>
+            <span id="summaryTotalPrice" class="text-amber-700 font-mono">0 د.ع</span>
+          </div>
+          <div class="text-[11px] text-slate-500 pt-1">
+            📌 الدفع نقداً عند استلام الشحنة من كابتن التوصيل.
+          </div>
+        </div>
+
+        <!-- WhatsApp Submit CTA -->
+        <button 
+          onclick="confirmOrderWhatsApp()" 
+          class="w-full py-3.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-2xl text-sm transition-all shadow-md flex items-center justify-center gap-2 active:scale-98"
+        >
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>تأكيد الطلب وتوجيه الكابتن عبر الواتساب</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Merchant Onboarding Modal (Add Vendor Product) -->
+  <div id="merchantModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-slate-950/75 backdrop-blur-sm overflow-y-auto">
+    <div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-auto max-h-[92vh] flex flex-col">
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-amber-500/10 via-white to-slate-50 shrink-0">
+        <div>
+          <h3 class="text-base sm:text-lg font-black text-slate-900">انضم كتاجر / أضف منتجك لسوق أور</h3>
+          <p class="text-xs text-slate-500">سجل متجرك واعرض بضاعتك لآلاف المشترين في كافة محافظات العراق</p>
+        </div>
+        <button onclick="closeMerchantModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold">
+          ✕
+        </button>
+      </div>
+
+      <!-- Form Body -->
+      <form id="merchantForm" onsubmit="handleMerchantSubmit(event)" class="p-6 overflow-y-auto space-y-5 flex-1 text-right">
+        <!-- 1. Merchant Profile Information -->
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
+          <div class="text-xs font-bold text-slate-800 border-b border-slate-200 pb-2">
+            1. بيانات المتجر أو البيج (Merchant Info)
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">اسم المتجر / البيج <span class="text-red-500">*</span></label>
+              <input id="merchantName" required type="text" placeholder="مثال: Baghdad_Trends أو متجر دجلة" class="w-full text-sm rounded-xl py-2 px-3 border border-slate-200 bg-white focus:border-amber-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">رقم الواتساب للتنسيق <span class="text-red-500">*</span></label>
+              <input id="merchantPhone" required dir="ltr" type="tel" placeholder="0770 123 4567" class="w-full text-sm rounded-xl py-2 px-3 border border-slate-200 bg-white focus:border-amber-500 focus:outline-none font-mono">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold text-slate-700 mb-1">المدينة / المحافظة المتواجد بها المخزن <span class="text-red-500">*</span></label>
+              <select id="merchantGov" class="w-full text-sm rounded-xl py-2 px-3 border border-slate-200 bg-white focus:border-amber-500 focus:outline-none font-semibold cursor-pointer">
+                <!-- Dynamically populated -->
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Product Details -->
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
+          <div class="text-xs font-bold text-slate-800 border-b border-slate-200 pb-2">
+            2. تفاصيل المنتج الجديد (Product Info)
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold text-slate-700 mb-1">عنوان المنتج باللغة العربية <span class="text-red-500">*</span></label>
+              <input id="newProdTitle" required type="text" placeholder="مثال: تيشيرت صيفي قطن 100% أوفر سايز" class="w-full text-sm rounded-xl py-2 px-3 border border-slate-200 bg-white focus:border-amber-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">التصنيف <span class="text-red-500">*</span></label>
+              <select id="newProdCategory" class="w-full text-sm rounded-xl py-2 px-3 border border-slate-200 bg-white focus:border-amber-500 focus:outline-none font-semibold cursor-pointer">
+                <option value="fashion">أزياء وملابس</option>
+                <option value="beauty">جمال وعناية بالبشرة</option>
+                <option value="home">المنزل والمطبخ</option>
+                <option value="electronics">إلكترونيات</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">السعر بالدينار العراقي (IQD) <span class="text-red-500">*</span></label>
+              <input id="newProdPrice" required type="number" placeholder="مثال: 25000" class="w-full text-sm rounded-xl py-2 px-3 border border-slate-200 bg-white focus:border-amber-500 focus:outline-none font-mono">
+            </div>
+            <div class="sm:col-span-2 space-y-2">
+              <div class="flex items-center justify-between">
+                <label class="block text-xs font-bold text-slate-700">صورة المنتج <span class="text-red-500">*</span></label>
+                <div class="flex items-center gap-1 bg-slate-100 p-0.5 rounded-lg text-[11px]">
+                  <button type="button" id="tabUploadBtn" onclick="switchImageTab('upload')" class="px-2 py-0.5 rounded-md font-bold bg-white text-slate-900 shadow-xs">
+                    رفع من الجهاز / الهاتف
+                  </button>
+                  <button type="button" id="tabUrlBtn" onclick="switchImageTab('url')" class="px-2 py-0.5 rounded-md font-bold text-slate-500 hover:text-slate-800">
+                    رابط أو نماذج جاهزة
+                  </button>
+                </div>
+              </div>
+
+              <!-- Direct File Upload Option (Multiple up to 5) -->
+              <div id="uploadFileSection" class="space-y-3">
+                <input id="merchantFileInput" type="file" accept="image/*" multiple class="hidden" onchange="handleSingleFileImageUpload(event)">
+                
+                <!-- Upload Dropzone (when no file selected) -->
+                <div id="dropzoneBox" onclick="document.getElementById('merchantFileInput').click()" class="cursor-pointer border-2 border-dashed border-slate-300 hover:border-amber-500 bg-white hover:bg-amber-50/20 rounded-2xl p-5 flex flex-col items-center justify-center text-center transition-all group">
+                  <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform text-2xl">
+                    📷
+                  </div>
+                  <span class="text-sm font-bold text-slate-800">اضغط لرفع صور المنتج من الهاتف أو جهازك (حتى 5 صور)</span>
+                  <span class="text-xs text-slate-500 mt-1">يمكنك تحديد صور متعددة معاً (JPG, PNG, WebP) بحد أقصى 5 صور</span>
+                  <span class="mt-2 text-[11px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">
+                    يدعم ألبوم حتى 5 صور للمنتج الواحد
+                  </span>
+                </div>
+
+                <!-- Preview Grid Container (when files selected) -->
+                <div id="imagePreviewContainer" class="hidden border border-slate-200 bg-slate-50/60 rounded-2xl p-3 flex-col space-y-3">
+                  <div class="flex items-center justify-between text-xs pb-1 border-b border-slate-200">
+                    <span id="previewCountBadge" class="font-bold text-slate-800">الصور المرفوعة (0 / 5)</span>
+                    <button type="button" onclick="removeAllSingleFileImages()" class="text-red-600 hover:text-red-700 font-bold text-xs flex items-center gap-1">
+                      🗑️ حذف كافة الصور
+                    </button>
+                  </div>
+
+                  <!-- Thumbnails Grid -->
+                  <div id="thumbnailsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
+                    <!-- Injected dynamically via JavaScript -->
+                  </div>
+
+                  <div class="text-[11px] text-slate-500 flex items-center justify-between pt-1">
+                    <span>💡 الصورة الأولى هي الصورة الرئيسية لبطاقة المنتج.</span>
+                    <button type="button" id="addMorePhotosBtn" onclick="document.getElementById('merchantFileInput').click()" class="font-bold text-amber-700 hover:underline">
+                      + إضافة صور أخرى
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- URL & Presets Option -->
+              <div id="urlSection" class="hidden space-y-2">
+                <div class="flex gap-2">
+                  <input id="newProdImage" type="url" dir="ltr" placeholder="https://images.unsplash.com/..." class="flex-1 text-sm rounded-xl py-2 px-3 border border-slate-200 bg-white focus:border-amber-500 focus:outline-none font-mono">
+                  <button type="button" onclick="addUrlPhoto()" class="px-3 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold shrink-0">+ إضافة</button>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" onclick="addPresetPhoto('https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&auto=format&fit=crop&q=80', 'fashion')" class="text-[11px] bg-white border border-slate-200 px-2 py-1 rounded hover:bg-amber-50">+ نموذج ملابس</button>
+                  <button type="button" onclick="addPresetPhoto('https://images.unsplash.com/photo-1608248597359-00f205b38fba?w=800&auto=format&fit=crop&q=80', 'beauty')" class="text-[11px] bg-white border border-slate-200 px-2 py-1 rounded hover:bg-amber-50">+ نموذج عناية</button>
+                  <button type="button" onclick="addPresetPhoto('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80', 'electronics')" class="text-[11px] bg-white border border-slate-200 px-2 py-1 rounded hover:bg-amber-50">+ نموذج إلكترونيات</button>
+                  <button type="button" onclick="addPresetPhoto('https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=800&auto=format&fit=crop&q=80', 'home')" class="text-[11px] bg-white border border-slate-200 px-2 py-1 rounded hover:bg-amber-50">+ نموذج منزل</button>
+                </div>
+              </div>
+
+              <!-- Safety & Content Policy Disclaimer Note -->
+              <div class="p-3 bg-amber-50/90 rounded-xl border border-amber-300 text-amber-950 text-xs flex items-start gap-2.5">
+                <span class="text-sm shrink-0 mt-0.5">🛡️</span>
+                <div>
+                  <div class="font-bold text-amber-900 mb-0.5">تنبيه وسياسة المحتوى والصور (Safety & Content Policy):</div>
+                  <p class="text-[11px] leading-relaxed text-amber-900/90">
+                    يجب أن تكون الصور المرفوعة لائقة، ذات دقة عالية، ومخصصة حصراً للمنتج المعروض. يُمنع منعاً باتاً رفع أي صور خادشة للحياء، غير محتشمة، أو مضللة للمشترين حفاظاً على معايير السوق العراقي والآداب العامة وسياسة الجودة لـ UR Store.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold text-slate-700 mb-1">وصف ومواصفات المنتج (المقاسات، الألوان، الخامة) <span class="text-red-500">*</span></label>
+              <textarea id="newProdDesc" required rows="2" placeholder="اكتب المقاسات المتاحة، الألوان، والمواصفات للزبائن..." class="w-full text-sm rounded-xl py-2 px-3 border border-slate-200 bg-white focus:border-amber-500 focus:outline-none"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full py-3 px-4 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black rounded-xl text-sm transition-all shadow-md">
+          إدراج المنتج في السوق (Submit Product for Listing) ⚡
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Reseller / Affiliate AI Onboarding Modal (Matte Charcoal & Gold) -->
+  <div id="resellerModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200">
+    <div class="relative w-full max-w-3xl bg-[#141519] border border-amber-500/30 rounded-3xl shadow-2xl shadow-amber-500/10 text-slate-100 overflow-hidden my-auto max-h-[92vh] flex flex-col text-right">
+      <!-- Matte Charcoal & Gold Top Header -->
+      <div class="px-6 py-4 border-b border-amber-500/20 bg-gradient-to-r from-amber-950/40 via-[#18191f] to-amber-950/20 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 text-slate-950 flex items-center justify-center font-black shadow-md shadow-amber-500/20 text-lg">
+            ✨
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="text-base sm:text-lg font-black text-amber-400 tracking-tight">
+                بوابة المسوقين والمندوبين | UR Reseller Engine
+              </h3>
+              <span class="bg-amber-500/10 text-amber-400 border border-amber-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                B2B2C Affiliate
+              </span>
+            </div>
+            <p class="text-xs text-slate-400 mt-0.5">
+              ابدأ تجارتك الإلكترونية بدون رأس مال وبدون شراء مخزون — أرباح مضمونة عند كل تسليم
+            </p>
+          </div>
+        </div>
+        <button
+          onclick="closeResellerModal()"
+          class="w-8 h-8 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors shrink-0"
+          aria-label="إغلاق"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="flex border-b border-slate-800 bg-[#101115] px-6 text-xs sm:text-sm font-bold shrink-0">
+        <button
+          id="resellerTabBtn-form"
+          type="button"
+          onclick="switchResellerTab('form')"
+          class="py-3 px-4 border-b-2 border-amber-400 text-amber-400 flex items-center gap-2 transition-all cursor-pointer"
+        >
+          <span>👤 طلب الانضمام كمسوق</span>
+        </button>
+
+        <button
+          id="resellerTabBtn-calculator"
+          type="button"
+          onclick="switchResellerTab('calculator')"
+          class="py-3 px-4 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 transition-all cursor-pointer"
+        >
+          <span>📈 حاسبة الأرباح</span>
+        </button>
+
+        <button
+          id="resellerTabBtn-engine"
+          type="button"
+          onclick="switchResellerTab('engine')"
+          class="py-3 px-4 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 transition-all cursor-pointer"
+        >
+          <span>⚡ محرك الذكاء الاصطناعي (JSON Engine)</span>
+        </button>
+      </div>
+
+      <!-- Tab Content Body -->
+      <div class="p-6 overflow-y-auto flex-1 space-y-6">
+        <!-- TAB 1: REGISTRATION FORM -->
+        <div id="resellerTab-form" class="space-y-5">
+          <!-- Success State Container (Initially hidden) -->
+          <div id="resellerSuccessScreen" class="hidden bg-[#181920] border border-amber-500/40 rounded-3xl p-6 sm:p-8 text-center space-y-5">
+            <div class="w-16 h-16 rounded-2xl bg-amber-500/20 border border-amber-500/50 text-amber-400 flex items-center justify-center mx-auto text-3xl font-bold shadow-lg shadow-amber-500/10">
+              ✓
+            </div>
+            <div>
+              <span id="resellerSuccessBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 mb-2">
+                🔥 الحالة: APPROVED_INSTANT (قبول فوري)
+              </span>
+              <h4 class="text-xl sm:text-2xl font-black text-amber-400">
+                مبارك! تم اعتمادك كمسوق معتمد في سوق أور
+              </h4>
+              <p id="resellerSuccessMsg" class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto mt-2 leading-relaxed">
+                تم قبولك فورياً كمسوق بالعمولة في سوق أور. يمكنك البدء في بيع المنتجات بدون أي رأس مال مع ضمان تحصيل أرباحك عند كل توصيل ناجح.
+              </p>
+            </div>
+
+            <!-- Reseller ID Card -->
+            <div class="bg-[#101116] border border-amber-500/30 rounded-2xl p-4 max-w-md mx-auto flex items-center justify-between gap-3">
+              <div class="text-right">
+                <span class="text-[11px] text-slate-400 block">كود المسوق الخاص بك (Reseller ID):</span>
+                <span id="resellerGeneratedCode" class="text-lg font-mono font-black text-amber-400 tracking-wider">
+                  UR-MND-9241
+                </span>
+              </div>
+              <button
+                type="button"
+                onclick="copyResellerCode()"
+                id="copyResellerBtn"
+                class="px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold border border-amber-500/30 transition-colors"
+              >
+                نسخ الكود
+              </button>
+            </div>
+
+            <!-- Perks -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-right max-w-xl mx-auto pt-2">
+              <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                <span class="text-xs font-bold text-amber-400 block mb-1">هامش الربح المتوقع:</span>
+                <span id="resellerMarginEstimate" class="text-xs text-slate-300 font-semibold">20% - 35% هامش ربح للمنتج</span>
+              </div>
+              <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                <span class="text-xs font-bold text-amber-400 block mb-1">طريقة استلام الأرباح:</span>
+                <span class="text-xs text-slate-300 font-semibold">تحويل فوري (زين كاش أو حوالة)</span>
+              </div>
+              <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                <span class="text-xs font-bold text-amber-400 block mb-1">التوصيل والتحصيل:</span>
+                <span class="text-xs text-slate-300 font-semibold">تتكفل بها شبكة توصيل سوق أور</span>
+              </div>
+            </div>
+
+            <div class="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onclick="closeResellerModal()"
+                class="px-6 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black rounded-xl text-sm transition-all shadow-md shadow-amber-500/20"
+              >
+                تصفح المنتجات وبدء البيع الآن 🛍️
+              </button>
+              <button
+                onclick="resetResellerFormUI()"
+                class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs transition-colors"
+              >
+                تقديم طلب لمسوق آخر
+              </button>
+            </div>
+          </div>
+
+          <!-- Registration Form Input Screen -->
+          <form id="resellerMainForm" onsubmit="handleResellerFormSubmit(event)" class="space-y-5">
+            <!-- Hero Proposition -->
+            <div class="p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-500/30 flex items-start gap-3">
+              <div class="p-2 rounded-xl bg-amber-500/20 text-amber-400 shrink-0 text-xl">
+                💰
+              </div>
+              <div>
+                <h4 class="text-sm font-black text-amber-300">
+                  التسويق بالعمولة (مندوب مبيعات معتمد) في العراق
+                </h4>
+                <p class="text-xs text-slate-300 leading-relaxed mt-0.5">
+                  اختر أي منتج من سوق أور، اعرضه بسعر البيع الذي تحدده لجمهورك على السوشيال ميديا، وعند إتمام الطلب نوصل للزبون ونحوّل لك كامل فارق السعر كأرباح صافية.
+                </p>
+              </div>
+            </div>
+
+            <div id="resellerFormErrors" class="hidden p-3.5 rounded-xl bg-red-950/60 border border-red-500/50 text-red-200 text-xs"></div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- 1. Full Name -->
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">
+                  الاسم الكامل (الثنائي أو الثلاثي على الأقل) <span class="text-amber-400">*</span>
+                </label>
+                <input
+                  id="resellerFullName"
+                  type="text"
+                  placeholder="مثال: أحمد رائد الخفاجي"
+                  class="w-full text-sm rounded-xl py-2.5 px-3.5 bg-[#1b1d24] border border-slate-700 focus:border-amber-400 focus:outline-none text-white placeholder:text-slate-500"
+                  required
+                />
+              </div>
+
+              <!-- 2. Phone Number -->
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">
+                  رقم الهاتف العراقي (11 رقماً) <span class="text-amber-400">*</span>
+                </label>
+                <input
+                  id="resellerPhone"
+                  dir="ltr"
+                  type="tel"
+                  placeholder="0770 123 4567"
+                  class="w-full text-sm rounded-xl py-2.5 px-3.5 bg-[#1b1d24] border border-slate-700 focus:border-amber-400 focus:outline-none text-white font-mono placeholder:text-slate-500"
+                  required
+                />
+                <span class="text-[10px] text-slate-500 mt-1 block">
+                  يبدأ بـ 077 أو 078 أو 075 أو 079 لاستلام التنبيهات والأرباح
+                </span>
+              </div>
+
+              <!-- 3. Province / Governorate -->
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">
+                  المحافظة <span class="text-amber-400">*</span>
+                </label>
+                <select
+                  id="resellerProvince"
+                  class="w-full text-sm rounded-xl py-2.5 px-3.5 bg-[#1b1d24] border border-slate-700 focus:border-amber-400 focus:outline-none text-white cursor-pointer font-medium"
+                >
+                  <option value="بغداد">بغداد (العاصمة)</option>
+                  <option value="البصرة">البصرة</option>
+                  <option value="أربيل">أربيل</option>
+                  <option value="السليمانية">السليمانية</option>
+                  <option value="دهوك">دهوك</option>
+                  <option value="نينوى">نينوى (الموصل)</option>
+                  <option value="كركوك">كركوك</option>
+                  <option value="النجف">النجف الأشرف</option>
+                  <option value="كربلاء">كربلاء المقدسة</option>
+                  <option value="بابل">بابل (الحلة)</option>
+                  <option value="ذي قار">ذي قار (الناصرية)</option>
+                  <option value="الأنبار">الأنبار (الرمادي / الفلوجة)</option>
+                  <option value="ديالى">ديالى (بعقوبة)</option>
+                  <option value="صلاح الدين">صلاح الدين (تكريت)</option>
+                  <option value="واسط">واسط (الكوت)</option>
+                  <option value="ميسان">ميسان (العمارة)</option>
+                  <option value="الديوانية">القادسية (الديوانية)</option>
+                  <option value="المثنى">المثنى (السماوة)</option>
+                </select>
+              </div>
+
+              <!-- 4. Primary Sales Channel -->
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">
+                  قناة البيع الأساسية <span class="text-amber-400">*</span>
+                </label>
+                <input
+                  id="resellerChannel"
+                  type="text"
+                  placeholder="مثال: بيج انستغرام، تيك توك، قنوات تيليجرام، بيع مباشر"
+                  class="w-full text-sm rounded-xl py-2.5 px-3.5 bg-[#1b1d24] border border-slate-700 focus:border-amber-400 focus:outline-none text-white placeholder:text-slate-500"
+                  required
+                />
+              </div>
+
+              <!-- 5. Experience Level -->
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-bold text-slate-300 mb-2">
+                  مستوى خبرتك في التسويق والمبيعات (Experience Level) <span class="text-amber-400">*</span>
+                </label>
+                <div class="grid grid-cols-3 gap-2.5">
+                  <button
+                    type="button"
+                    onclick="selectExperienceLevel('BEGINNER')"
+                    id="expBtn-BEGINNER"
+                    class="p-3 rounded-xl border text-center transition-all cursor-pointer bg-amber-500/15 border-amber-400 text-amber-300 shadow-sm shadow-amber-500/10"
+                  >
+                    <span class="text-xs font-black block">مبتدئ (BEGINNER)</span>
+                    <span class="text-[10px] opacity-75 mt-0.5 block">أبدأ لأول مرة</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onclick="selectExperienceLevel('INTERMEDIATE')"
+                    id="expBtn-INTERMEDIATE"
+                    class="p-3 rounded-xl border text-center transition-all cursor-pointer bg-[#1b1d24] border-slate-700 text-slate-400 hover:text-slate-200"
+                  >
+                    <span class="text-xs font-black block">متوسط (INTERMEDIATE)</span>
+                    <span class="text-[10px] opacity-75 mt-0.5 block">لدي صفحة ومبيعات سابقة</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onclick="selectExperienceLevel('EXPERT')"
+                    id="expBtn-EXPERT"
+                    class="p-3 rounded-xl border text-center transition-all cursor-pointer bg-[#1b1d24] border-slate-700 text-slate-400 hover:text-slate-200"
+                  >
+                    <span class="text-xs font-black block">محترف (EXPERT)</span>
+                    <span class="text-[10px] opacity-75 mt-0.5 block">مبيعات يومية مستمرة</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terms & Conditions of Reseller Program -->
+            <div class="p-4 rounded-2xl bg-[#101115] border border-amber-500/20 space-y-2">
+              <span class="text-xs font-bold text-amber-400 block mb-1">
+                شروط وأحكام شبكة المسوقين في سوق أور (UR Store Reseller Terms):
+              </span>
+              <ul class="text-[11px] text-slate-400 space-y-1.5 list-disc list-inside leading-relaxed">
+                <li>
+                  <b>عدم تجاوز المنصة:</b> يلتزم المسوق بعدم التواصل المباشر مع التجار لتجاوز المنصة والحفاظ على حقوق جميع الأطراف.
+                </li>
+                <li>
+                  <b>دقة البيانات:</b> الالتزام بتقديم أرقام هواتف حقيقية وعناوين واضحة لزبائنك لضمان سرعة التوصيل وعدم رجوع الطرد.
+                </li>
+                <li>
+                  <b>احتساب الأرباح:</b> تُحسب الأرباح بالمعادلة: <span class="text-amber-300 font-mono font-bold">(سعر البيع النهائي - سعر الجملة)</span> ويتم إيداعها فور تسليم الشحنة للزبون.
+                </li>
+              </ul>
+
+              <div class="pt-2 flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="resellerTermsCheck"
+                  checked
+                  class="w-4 h-4 rounded text-amber-500 focus:ring-amber-400 bg-slate-800 border-slate-700 cursor-pointer"
+                  required
+                />
+                <label for="resellerTermsCheck" class="text-xs font-bold text-slate-200 cursor-pointer">
+                  أوافق وأتعهد بالالتزام بشروط وأحكام المسوقين بالعمولة في UR Store
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit CTA -->
+            <button
+              type="submit"
+              class="w-full py-3.5 px-4 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black rounded-xl text-sm transition-all shadow-lg shadow-amber-500/20 active:scale-98 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>✨ تأكيد التسجيل واعتماد الحساب فـورياً (Instant Approval)</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- TAB 2: RESELLER PROFIT SIMULATOR -->
+        <div id="resellerTab-calculator" class="hidden space-y-6">
+          <div class="text-center max-w-lg mx-auto">
+            <h4 class="text-base sm:text-lg font-black text-amber-400">
+              محاكي أرباح المسوق بالعمولة (Profit Calculator)
+            </h4>
+            <p class="text-xs text-slate-400 mt-1">
+              احسب كم يمكنك أن تربح شهرياً بمجرد ترويج المنتجات على صفحتك بدون أي مصاريف شحن أو تخزين
+            </p>
+          </div>
+
+          <!-- Formula Card -->
+          <div class="p-4 rounded-2xl bg-[#1b1d24] border border-amber-500/20 text-center">
+            <span class="text-xs text-slate-400 block mb-1">المعادلة الرسمية للأرباح:</span>
+            <div class="text-sm sm:text-base font-black text-amber-400 font-mono">
+              صافي ربحك = (سعر البيع للزبون - سعر الجملة الخاص بك)
+            </div>
+          </div>
+
+          <!-- Slider 1: Monthly Orders -->
+          <div class="bg-[#101115] p-5 rounded-2xl border border-slate-800 space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <span class="font-bold text-slate-300">عدد الطلبات الناجحة شهرياً:</span>
+              <span id="calcOrdersDisplay" class="text-base font-black text-amber-400 font-mono">30 طلب</span>
+            </div>
+            <input
+              id="calcOrdersSlider"
+              type="range"
+              min="5"
+              max="150"
+              step="5"
+              value="30"
+              oninput="updateProfitCalculation()"
+              class="w-full accent-amber-500 cursor-pointer"
+            />
+            <div class="flex justify-between text-[10px] text-slate-500">
+              <span>5 طلبات (بداية تجربة)</span>
+              <span>50 طلب (مستوى جيد)</span>
+              <span>150 طلب (نشاط محترف)</span>
+            </div>
+          </div>
+
+          <!-- Slider 2: Average Profit Margin -->
+          <div class="bg-[#101115] p-5 rounded-2xl border border-slate-800 space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <span class="font-bold text-slate-300">متوسط ربحك الصافي في القطعة الواحدة:</span>
+              <span id="calcProfitDisplay" class="text-base font-black text-amber-400 font-mono">9,000 د.ع</span>
+            </div>
+            <input
+              id="calcProfitSlider"
+              type="range"
+              min="4000"
+              max="25000"
+              step="1000"
+              value="9000"
+              oninput="updateProfitCalculation()"
+              class="w-full accent-amber-500 cursor-pointer"
+            />
+            <div class="flex justify-between text-[10px] text-slate-500">
+              <span>4,000 د.ع (إكسسوارات)</span>
+              <span>10,000 د.ع (أزياء وعطور)</span>
+              <span>25,000 د.ع (إلكترونيات فاخرة)</span>
+            </div>
+          </div>
+
+          <!-- Calculated Results Banner -->
+          <div class="p-6 rounded-3xl bg-gradient-to-br from-amber-500/20 via-[#181a22] to-amber-950/30 border border-amber-500/40 text-center space-y-2">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">
+              تقدير صافي أرباحك الشهرية
+            </span>
+            <div id="calcTotalNetProfit" class="text-3xl sm:text-4xl font-black text-amber-400 font-mono tracking-tight">
+              270,000 د.ع
+            </div>
+            <p class="text-xs text-slate-300 max-w-sm mx-auto pt-1">
+              تحول كامل المبالغ لحسابك البنكي أو محفظتك الإلكترونية (زين كاش) فور تسليم الشحنات للزبائن بدون أي خصومات خفية.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <button
+              type="button"
+              onclick="switchResellerTab('form')"
+              class="px-6 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black rounded-xl text-sm transition-all cursor-pointer"
+            >
+              انضم الآن وابدأ التحصيل 🚀
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB 3: AI ONBOARDING ENGINE JSON TERMINAL -->
+        <div id="resellerTab-engine" class="hidden space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h4 class="text-sm font-black text-amber-400 flex items-center gap-1.5">
+                ⚡ محرك التحقق والاعتماد الآلي (Core AI Validation Engine)
+              </h4>
+              <p class="text-[11px] text-slate-400">
+                يمكنك اختبار ومعالجة بيانات طلبات المسوقين بصيغة JSON المعتمدة
+              </p>
+            </div>
+            <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">
+              v2.0 Iraqi Market Rules
+            </span>
+          </div>
+
+          <!-- Sample Preset Loaders -->
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="text-[11px] text-slate-400 self-center">نماذج تجربة سريعة:</span>
+            <button
+              type="button"
+              onclick="loadJsonSample('valid')"
+              class="px-2.5 py-1 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-xs font-bold hover:bg-emerald-900/60 cursor-pointer"
+            >
+              ✓ طلب مكتمل (Approved Instant)
+            </button>
+            <button
+              type="button"
+              onclick="loadJsonSample('invalid_phone')"
+              class="px-2.5 py-1 rounded-lg bg-red-950/60 border border-red-500/40 text-red-300 text-xs font-bold hover:bg-red-900/60 cursor-pointer"
+            >
+              ✕ رقم هاتف غير صالح
+            </button>
+            <button
+              type="button"
+              onclick="loadJsonSample('missing_terms')"
+              class="px-2.5 py-1 rounded-lg bg-amber-950/60 border border-amber-500/40 text-amber-300 text-xs font-bold hover:bg-amber-900/60 cursor-pointer"
+            >
+              ✕ الشروط غير مقبولة
+            </button>
+          </div>
+
+          <!-- Input JSON Editor -->
+          <div>
+            <label class="block text-xs font-bold text-slate-400 mb-1">
+              1. حمولة البيانات المدخلة (Input JSON Payload):
+            </label>
+            <textarea
+              id="resellerJsonInput"
+              dir="ltr"
+              rows="8"
+              class="w-full text-xs font-mono bg-[#0b0c0e] text-amber-300 border border-slate-800 rounded-xl p-3 focus:outline-none focus:border-amber-500/50"
+            ></textarea>
+          </div>
+
+          <div class="flex gap-2">
+            <button
+              type="button"
+              onclick="executeJsonEngine()"
+              class="flex-1 py-2.5 px-4 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black rounded-xl text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+            >
+              <span>معالجة الطلب في محرك الذكاء الاصطناعي (Execute Engine) ⚡</span>
+            </button>
+          </div>
+
+          <!-- Output JSON Response -->
+          <div id="resellerJsonOutputContainer" class="hidden">
+            <div class="flex justify-between items-center text-xs font-bold text-slate-400 mb-1">
+              <span>2. استجابة المحرك (Engine Response Output):</span>
+              <button
+                type="button"
+                onclick="copyJsonOutput()"
+                id="copyJsonOutputBtn"
+                class="text-amber-400 hover:underline text-[11px] cursor-pointer"
+              >
+                نسخ الاستجابة
+              </button>
+            </div>
+            <pre
+              id="resellerJsonOutput"
+              dir="ltr"
+              class="p-3.5 bg-[#0b0c0e] text-emerald-400 text-xs font-mono rounded-xl border border-slate-800 overflow-x-auto max-h-64"
+            ></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Success Feedback Modal -->
+  <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
+    <div class="relative w-full max-w-md bg-white rounded-3xl p-6 text-center space-y-4 shadow-2xl border border-slate-200">
+      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-2xl font-bold">
+        ✓
+      </div>
+      <h3 class="text-xl font-bold text-slate-900">تم إرسال طلبك بنجاح!</h3>
+      <p class="text-xs text-slate-600">
+        تم تجهيز بيانات طلبك وتحويلك للواتساب لإعلام متجر أور والتاجر المعتمد لإرسال كابتن التوصيل.
+      </p>
+      <div id="successSummary" class="bg-slate-50 p-4 rounded-2xl text-xs text-right space-y-1.5 border border-slate-200 font-medium"></div>
+      <button onclick="closeSuccessModal()" class="w-full py-2.5 px-4 bg-slate-900 text-white font-bold rounded-xl text-xs hover:bg-slate-800 transition-colors">
+        العودة للتسوق
+      </button>
+    </div>
+  </div>
+
+  <!-- Vanilla JavaScript Logic -->
+  <script>
+    const STORE_WHATSAPP = '9647701234567';
+
+    // 18 Iraqi Governorates
+    const GOVERNORATES = [
+      { id: 'baghdad', nameAr: 'بغداد (العاصمة)', fee: 4000, time: '24-48 ساعة' },
+      { id: 'basra', nameAr: 'البصرة', fee: 5000, time: '2-3 أيام' },
+      { id: 'erbil', nameAr: 'أربيل', fee: 5000, time: '2-3 أيام' },
+      { id: 'sulaymaniyah', nameAr: 'السليمانية', fee: 5000, time: '2-3 أيام' },
+      { id: 'duhok', nameAr: 'دهوك', fee: 5000, time: '3-4 أيام' },
+      { id: 'nineveh', nameAr: 'نينوى (الموصل)', fee: 5000, time: '2-3 أيام' },
+      { id: 'kirkuk', nameAr: 'كركوك', fee: 5000, time: '2-3 أيام' },
+      { id: 'diyala', nameAr: 'ديالى', fee: 5000, time: '24-48 ساعة' },
+      { id: 'anbar', nameAr: 'الأنبار', fee: 5000, time: '2-3 أيام' },
+      { id: 'babil', nameAr: 'بابل (الحلة)', fee: 5000, time: '24-48 ساعة' },
+      { id: 'karbala', nameAr: 'كربلاء المقدسة', fee: 5000, time: '24-48 ساعة' },
+      { id: 'najaf', nameAr: 'النجف الأشرف', fee: 5000, time: '24-48 ساعة' },
+      { id: 'wasit', nameAr: 'واسط (الكوت)', fee: 5000, time: '24-48 ساعة' },
+      { id: 'saladin', nameAr: 'صلاح الدين (تكريت)', fee: 5000, time: '2-3 أيام' },
+      { id: 'qadisiyyah', nameAr: 'الديوانية (القادسية)', fee: 5000, time: '2-3 أيام' },
+      { id: 'maysan', nameAr: 'ميسان (العمارة)', fee: 5000, time: '2-3 أيام' },
+      { id: 'dhi-qar', nameAr: 'ذي قار (الناصرية)', fee: 5000, time: '2-3 أيام' },
+      { id: 'muthanna', nameAr: 'المثنى (السماوة)', fee: 5000, time: '2-3 أيام' }
+    ];
+
+    // Default Sample Multi-Vendor Products
+    let PRODUCTS = [
+      {
+        id: 'ur-1',
+        title: 'تيشيرت أوفرايزد قطن فاخر بطبعة ستريت وير عصرية',
+        category: 'fashion',
+        categoryName: 'أزياء وملابس',
+        price: 25000,
+        origPrice: 35000,
+        image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80',
+        images: [
+          'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&auto=format&fit=crop&q=80'
+        ],
+        badge: 'الأكثر مبيعاً',
+        vendor: { name: 'Style_IQ', phone: '07701112233', city: 'بغداد - المنصور' }
+      },
+      {
+        id: 'ur-2',
+        title: 'هودي شتوي ثقيل مبطن خامة تركية ممتازة',
+        category: 'fashion',
+        categoryName: 'أزياء وملابس',
+        price: 38000,
+        origPrice: 48000,
+        image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80',
+        images: [
+          'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&auto=format&fit=crop&q=80'
+        ],
+        badge: 'خامة شتوية',
+        vendor: { name: 'Urban_Baghdad', phone: '07802223344', city: 'بغداد - الكرادة' }
+      },
+      {
+        id: 'ur-3',
+        title: 'سيروم حمض الهيالورونيك وفيتامين C لترطيب ونضارة البشرة',
+        category: 'beauty',
+        categoryName: 'جمال وعناية بالبشرة',
+        price: 22000,
+        origPrice: 30000,
+        image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&auto=format&fit=crop&q=80',
+        images: [
+          'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1608248597359-00f205b38fba?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=800&auto=format&fit=crop&q=80'
+        ],
+        badge: 'أصلي 100%',
+        vendor: { name: 'Baghdad_Beauty', phone: '07713334455', city: 'بغداد - زيونة' }
+      },
+      {
+        id: 'ur-4',
+        title: 'مجموعة العناية الفائقة وترميم حاجز البشرة الكورية',
+        category: 'beauty',
+        categoryName: 'جمال وعناية بالبشرة',
+        price: 42000,
+        origPrice: 55000,
+        image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&auto=format&fit=crop&q=80',
+        images: [
+          'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop&q=80'
+        ],
+        badge: 'منتج كوري أصلي',
+        vendor: { name: 'Erbil_Cosmetics', phone: '07504445566', city: 'أربيل - دريم سيتي' }
+      },
+      {
+        id: 'ur-5',
+        title: 'منظم مطبخ سيراميك فاخر متعدد الاستخدامات',
+        category: 'home',
+        categoryName: 'المنزل والمطبخ',
+        price: 28000,
+        origPrice: 36000,
+        image: 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=800&auto=format&fit=crop&q=80',
+        images: [
+          'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop&q=80'
+        ],
+        badge: 'أناقة عصرية',
+        vendor: { name: 'Basra_HomeDecor', phone: '07725556677', city: 'البصرة - العشار' }
+      },
+      {
+        id: 'ur-6',
+        title: 'موزع صابون رغوي ذكي بمستشعر حركة بدون تلامس',
+        category: 'home',
+        categoryName: 'المنزل والمطبخ',
+        price: 18000,
+        origPrice: 24000,
+        image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&auto=format&fit=crop&q=80',
+        images: [
+          'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1585659722983-3a675dabf23d?w=800&auto=format&fit=crop&q=80'
+        ],
+        badge: 'حماية ونظافة',
+        vendor: { name: 'Najaf_SmartLife', phone: '07816667788', city: 'النجف الأشرف' }
+      },
+      {
+        id: 'ur-7',
+        title: 'ساعة ذكية مقاومة للماء مع شاشة AMOLED وبطارية 10 أيام',
+        category: 'electronics',
+        categoryName: 'إلكترونيات',
+        price: 45000,
+        origPrice: 62000,
+        image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80',
+        images: [
+          'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&auto=format&fit=crop&q=80'
+        ],
+        badge: 'تخفيض 27%',
+        vendor: { name: 'TechZone_Iraq', phone: '07707778899', city: 'بغداد - شارع الصناعة' }
+      },
+      {
+        id: 'ur-8',
+        title: 'سماعات بلوتوث لاسلكية برو مع عزل الضوضاء الذكي ANC',
+        category: 'electronics',
+        categoryName: 'إلكترونيات',
+        price: 34000,
+        origPrice: 44000,
+        image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80',
+        images: [
+          'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=800&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&auto=format&fit=crop&q=80'
+        ],
+        badge: 'صوت محيطي 3D',
+        vendor: { name: 'Mosul_Gadgets', phone: '07738889900', city: 'نينوى - الموصل' }
+      }
+    ];
+
+    let currentCategory = 'all';
+    let selectedProduct = null;
+
+    function formatIQD(num) {
+      return num.toLocaleString('en-US') + ' د.ع';
+    }
+
+    // Populate governorates in all selects
+    function populateGovernorates() {
+      const select = document.getElementById('formGovernorate');
+      const merchantGov = document.getElementById('merchantGov');
+
+      const govOptions = GOVERNORATES.map(g => `
+        <option value="${g.id}">
+          ${g.nameAr} - توصيل: ${formatIQD(g.fee)} (${g.time})
+        </option>
+      `).join('');
+
+      select.innerHTML = govOptions;
+      merchantGov.innerHTML = GOVERNORATES.map(g => `
+        <option value="${g.id}">${g.nameAr}</option>
+      `).join('');
+    }
+
+    // Update Category Counts
+    function updateCategoryCounts() {
+      document.getElementById('count-all').textContent = PRODUCTS.length;
+      document.getElementById('count-fashion').textContent = PRODUCTS.filter(p => p.category === 'fashion').length;
+      document.getElementById('count-beauty').textContent = PRODUCTS.filter(p => p.category === 'beauty').length;
+      document.getElementById('count-home').textContent = PRODUCTS.filter(p => p.category === 'home').length;
+      document.getElementById('count-electronics').textContent = PRODUCTS.filter(p => p.category === 'electronics').length;
+    }
+
+    // Render products
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      const searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
+
+      const filtered = PRODUCTS.filter(p => {
+        const matchCat = currentCategory === 'all' || p.category === currentCategory;
+        const matchSearch = !searchQuery || 
+          p.title.toLowerCase().includes(searchQuery) || 
+          p.categoryName.toLowerCase().includes(searchQuery) ||
+          (p.vendor && p.vendor.name.toLowerCase().includes(searchQuery)) ||
+          (p.vendor && p.vendor.city.toLowerCase().includes(searchQuery));
+        return matchCat && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center text-slate-500 bg-white rounded-3xl border border-slate-200 p-8">
+            <div class="text-3xl mb-2">🔍</div>
+            <div class="font-bold text-slate-800">لم نتمكن من العثور على منتجات مطابقة</div>
+            <div class="text-xs text-slate-400 mt-1">جرب كلمات أخرى أو أضف منتجك الخاص الآن كتاجر!</div>
+            <button onclick="openMerchantModal()" class="mt-4 px-4 py-2 bg-amber-500 text-slate-950 font-bold rounded-xl text-xs">
+              + أضف منتج جديد
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(p => {
+        const pImages = (p.images && p.images.length > 0) ? p.images : [p.image];
+        const activeIdx = cardImageIndices[p.id] !== undefined ? cardImageIndices[p.id] : 0;
+        const currentSrc = pImages[activeIdx] || p.image;
+        const hasMultiple = pImages.length > 1;
+
+        return `
+        <article class="group bg-white rounded-2xl border border-slate-200 overflow-hidden flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+          <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden cursor-pointer select-none" onclick="openCheckout('${p.id}')">
+            <img id="card-img-${p.id}" src="${currentSrc}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            
+            <div class="absolute top-3 right-3 flex flex-col gap-1 pointer-events-none z-10">
+              <span class="bg-slate-900/90 text-amber-300 text-[11px] font-bold px-2.5 py-0.5 rounded-md shadow-xs">
+                ${p.badge || 'متوفر'}
+              </span>
+            </div>
+
+            ${hasMultiple ? `
+              <!-- Multi-Image Counter Pill -->
+              <span class="absolute top-3 left-3 z-10 bg-slate-900/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                📷 ${activeIdx + 1} / ${pImages.length}
+              </span>
+
+              <!-- Carousel Controls -->
+              <button type="button" onclick="switchCardImage('${p.id}', -1, event)" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-xs shadow-sm" title="الصورة السابقة">
+                ›
+              </button>
+              <button type="button" onclick="switchCardImage('${p.id}', 1, event)" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-xs shadow-sm" title="الصورة التالية">
+                ‹
+              </button>
+
+              <!-- Interactive Thumbnail Dots -->
+              <div class="absolute bottom-2.5 inset-x-0 flex items-center justify-center gap-1 z-10 pointer-events-auto">
+                ${pImages.map((_, i) => `
+                  <span onclick="setCardImage('${p.id}', ${i}, event)" class="cursor-pointer transition-all ${i === activeIdx ? 'w-4 h-1.5 bg-amber-400 rounded-full shadow-xs' : 'w-1.5 h-1.5 bg-white/70 rounded-full hover:bg-white'}"></span>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <!-- Vendor Badge Requirement -->
+              <div class="flex items-center justify-between text-xs text-slate-600 mb-1.5 pb-1.5 border-b border-slate-100">
+                <span class="font-bold text-amber-950 flex items-center gap-1 truncate">
+                  <span class="bg-amber-100 text-amber-900 text-[10px] px-1.5 py-0.5 rounded font-bold shrink-0">Sold by</span>
+                  <span class="text-slate-900 truncate">${p.vendor ? p.vendor.name : 'Style_IQ'}</span>
+                </span>
+                <span class="text-[10px] text-slate-400 shrink-0">
+                  ${p.vendor ? p.vendor.city.split(' - ')[0] : 'العراق'}
+                </span>
+              </div>
+
+              <div class="text-xs text-slate-500 mb-1">${p.categoryName}</div>
+              <h3 onclick="openCheckout('${p.id}')" class="text-sm font-bold text-slate-900 leading-snug line-clamp-2 mb-2 hover:text-amber-600 cursor-pointer transition-colors">${p.title}</h3>
+              <div class="flex items-baseline gap-2 mb-3">
+                <span class="text-lg font-black text-slate-950 font-mono">${formatIQD(p.price)}</span>
+                ${p.origPrice ? `<span class="text-xs text-slate-400 line-through font-mono">${formatIQD(p.origPrice)}</span>` : ''}
+              </div>
+            </div>
+            <button onclick="openCheckout('${p.id}')" class="w-full py-2.5 px-4 bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-slate-950 font-bold rounded-xl text-sm transition-all shadow-xs flex items-center justify-center gap-2">
+              <span>اطلب الآن</span>
+              <span class="text-xs font-normal opacity-75">(الدفع عند الاستلام)</span>
+            </button>
+          </div>
+        </article>
+        `;
+      }).join('');
+    }
+
+    // Carousel Image Handlers on Product Cards
+    function switchCardImage(prodId, delta, event) {
+      if (event) event.stopPropagation();
+      const product = PRODUCTS.find(p => p.id === prodId);
+      if (!product) return;
+      const pImages = (product.images && product.images.length > 0) ? product.images : [product.image];
+      const cur = cardImageIndices[prodId] || 0;
+      let next = cur + delta;
+      if (next < 0) next = pImages.length - 1;
+      if (next >= pImages.length) next = 0;
+      cardImageIndices[prodId] = next;
+      renderProducts();
+    }
+
+    function setCardImage(prodId, index, event) {
+      if (event) event.stopPropagation();
+      cardImageIndices[prodId] = index;
+      renderProducts();
+    }
+
+    // Category click handler
+    function setCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.className = 'cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-slate-700 hover:bg-slate-100 border border-slate-200';
+      });
+      const activeBtn = document.getElementById('btn-' + cat);
+      if (activeBtn) {
+        activeBtn.className = 'cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-slate-900 text-white shadow-sm border border-slate-900';
+      }
+      renderProducts();
+    }
+
+    // Fast Checkout Modal Open with Multi-Image Gallery
+    let modalActiveImageIndex = 0;
+    let modalImages = [];
+
+    function openCheckout(productId) {
+      selectedProduct = PRODUCTS.find(p => p.id === productId);
+      if (!selectedProduct) return;
+
+      modalImages = (selectedProduct.images && selectedProduct.images.length > 0) 
+        ? selectedProduct.images 
+        : [selectedProduct.image];
+      modalActiveImageIndex = 0;
+
+      updateModalImageDisplay();
+
+      document.getElementById('modalProductTitle').textContent = selectedProduct.title;
+      document.getElementById('modalProductPrice').textContent = formatIQD(selectedProduct.price);
+      document.getElementById('modalProductCategory').textContent = selectedProduct.categoryName;
+      document.getElementById('modalVendorName').textContent = selectedProduct.vendor ? selectedProduct.vendor.name : 'متجر أور المعتمد';
+      document.getElementById('modalVendorCity').textContent = selectedProduct.vendor ? selectedProduct.vendor.city : 'بغداد';
+
+      updateDeliveryFee();
+      document.getElementById('checkoutModal').classList.remove('hidden');
+      document.getElementById('checkoutModal').classList.add('flex');
+    }
+
+    function updateModalImageDisplay() {
+      const imgEl = document.getElementById('modalProductImg');
+      imgEl.src = modalImages[modalActiveImageIndex] || selectedProduct.image;
+
+      const navEl = document.getElementById('modalGalleryNav');
+      const thumbsRow = document.getElementById('modalThumbnailsRow');
+
+      if (modalImages.length > 1) {
+        navEl.classList.remove('hidden');
+        thumbsRow.innerHTML = modalImages.map((src, i) => `
+          <button type="button" onclick="setModalImage(${i})" class="shrink-0 w-10 h-10 rounded-lg overflow-hidden border-2 transition-all ${i === modalActiveImageIndex ? 'border-amber-500 ring-2 ring-amber-500/30 scale-105' : 'border-slate-300 opacity-60 hover:opacity-100'}">
+            <img src="${src}" alt="" class="w-full h-full object-cover">
+          </button>
+        `).join('');
+      } else {
+        navEl.classList.add('hidden');
+        thumbsRow.innerHTML = '';
+      }
+    }
+
+    function cycleModalImage(delta) {
+      if (modalImages.length <= 1) return;
+      modalActiveImageIndex += delta;
+      if (modalActiveImageIndex < 0) modalActiveImageIndex = modalImages.length - 1;
+      if (modalActiveImageIndex >= modalImages.length) modalActiveImageIndex = 0;
+      updateModalImageDisplay();
+    }
+
+    function setModalImage(idx) {
+      modalActiveImageIndex = idx;
+      updateModalImageDisplay();
+    }
+
+    function closeModal() {
+      document.getElementById('checkoutModal').classList.add('hidden');
+      document.getElementById('checkoutModal').classList.remove('flex');
+    }
+
+    function updateDeliveryFee() {
+      if (!selectedProduct) return;
+      const govId = document.getElementById('formGovernorate').value;
+      const gov = GOVERNORATES.find(g => g.id === govId) || GOVERNORATES[0];
+      const fee = gov.fee;
+      const total = selectedProduct.price + fee;
+
+      document.getElementById('summaryProductPrice').textContent = formatIQD(selectedProduct.price);
+      document.getElementById('summaryDeliveryFee').textContent = formatIQD(fee);
+      document.getElementById('summaryTotalPrice').textContent = formatIQD(total);
+    }
+
+    // WhatsApp Order Confirmation
+    function confirmOrderWhatsApp() {
+      const name = document.getElementById('formFullName').value.trim();
+      const phone = document.getElementById('formPhone').value.trim();
+      const govId = document.getElementById('formGovernorate').value;
+      const gov = GOVERNORATES.find(g => g.id === govId) || GOVERNORATES[0];
+      const address = document.getElementById('formAddress').value.trim();
+      const landmark = document.getElementById('formLandmark').value.trim();
+
+      if (!name || !phone || !address || !landmark) {
+        alert('يرجى ملء جميع الحقول المطلوبة (الاسم الكامل، رقم الهاتف، العنوان بالتفصيل، والنقطة الدالة)');
+        return;
+      }
+
+      const orderId = 'UR-' + Math.floor(1000 + Math.random() * 9000);
+      const total = selectedProduct.price + gov.fee;
+      const vendorInfo = selectedProduct.vendor 
+        ? `🏪 *التاجر/البيج:* ${selectedProduct.vendor.name} (${selectedProduct.vendor.city}) | هاتف: ${selectedProduct.vendor.phone}`
+        : '';
+
+      const message = `*طلب جديد من سوق أور (UR Multi-Vendor Marketplace)* 🛍️✨
+--------------------------------
+*رقم الطلب:* #${orderId}
+👤 *الزبون المستلم:* ${name}
+📱 *رقم الهاتف:* ${phone}
+📍 *المحافظة:* ${gov.nameAr}
+🏠 *العنوان:* ${address}
+📌 *أقرب نقطة دالة:* ${landmark}
+
+📦 *تفاصيل المنتج والتاجر:*
+• *المنتج:* ${selectedProduct.title}
+${vendorInfo}
+💰 *السعر:* ${formatIQD(selectedProduct.price)}
+🚚 *أجور التوصيل:* ${formatIQD(gov.fee)}
+💵 *المبلغ الإجمالي عند الاستلام:* ${formatIQD(total)} (الدفع نقداً COD)
+--------------------------------
+يرجى توجيه مندوب التوصيل لاستلام الشحنة من التاجر والتسليم للزبون.`;
+
+      const waUrl = 'https://wa.me/' + STORE_WHATSAPP + '?text=' + encodeURIComponent(message);
+      
+      try {
+        const a = document.createElement('a');
+        a.href = waUrl;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } catch (e) {
+        window.location.href = waUrl;
+      }
+
+      closeModal();
+      showSuccess(orderId, name, gov.nameAr, total, selectedProduct.title);
+    }
+
+    function showSuccess(orderId, name, govName, total, prodTitle) {
+      document.getElementById('successSummary').innerHTML = `
+        <div>رقم الطلب: <b>#${orderId}</b></div>
+        <div>المنتج: <b>${prodTitle}</b></div>
+        <div>الزبون: <b>${name}</b></div>
+        <div>المحافظة: <b>${govName}</b></div>
+        <div>المبلغ النهائي المطلوب: <b>${formatIQD(total)}</b></div>
+      `;
+      document.getElementById('successModal').classList.remove('hidden');
+      document.getElementById('successModal').classList.add('flex');
+    }
+
+    function closeSuccessModal() {
+      document.getElementById('successModal').classList.add('hidden');
+      document.getElementById('successModal').classList.remove('flex');
+    }
+
+    // Merchant Modal Handlers
+    let singleFileImages = [];
+
+    function openMerchantModal() {
+      document.getElementById('merchantModal').classList.remove('hidden');
+      document.getElementById('merchantModal').classList.add('flex');
+    }
+
+    function closeMerchantModal() {
+      document.getElementById('merchantModal').classList.add('hidden');
+      document.getElementById('merchantModal').classList.remove('flex');
+    }
+
+    function switchImageTab(mode) {
+      const uploadSec = document.getElementById('uploadFileSection');
+      const urlSec = document.getElementById('urlSection');
+      const tabUploadBtn = document.getElementById('tabUploadBtn');
+      const tabUrlBtn = document.getElementById('tabUrlBtn');
+
+      if (mode === 'upload') {
+        uploadSec.classList.remove('hidden');
+        urlSec.classList.add('hidden');
+        tabUploadBtn.className = 'px-2 py-0.5 rounded-md font-bold bg-white text-slate-900 shadow-xs';
+        tabUrlBtn.className = 'px-2 py-0.5 rounded-md font-bold text-slate-500 hover:text-slate-800';
+      } else {
+        uploadSec.classList.add('hidden');
+        urlSec.classList.remove('hidden');
+        tabUrlBtn.className = 'px-2 py-0.5 rounded-md font-bold bg-white text-slate-900 shadow-xs';
+        tabUploadBtn.className = 'px-2 py-0.5 rounded-md font-bold text-slate-500 hover:text-slate-800';
+      }
+    }
+
+    function handleSingleFileImageUpload(event) {
+      const files = event.target.files;
+      if (!files || files.length === 0) return;
+
+      const remainingSlots = 5 - singleFileImages.length;
+      if (remainingSlots <= 0) {
+        showToast('وصلت للحد الأقصى وهو 5 صور للمنتج الواحد.');
+        event.target.value = '';
+        return;
+      }
+
+      const filesArr = Array.from(files);
+      let selectedFiles = filesArr;
+
+      if (filesArr.length > remainingSlots) {
+        selectedFiles = filesArr.slice(0, remainingSlots);
+        showToast(`تم اختيار أول ${remainingSlots} صور فقط للالتزام بالحد الأقصى (5 صور لكل منتج).`);
+      }
+
+      let loadedCount = 0;
+      selectedFiles.forEach(file => {
+        if (!file.type.startsWith('image/')) {
+          showToast('تم تخطي بعض الملفات لأنها ليست بصيغة صورة صالحة');
+          return;
+        }
+        if (file.size > 8 * 1024 * 1024) {
+          showToast('إحدى الصور تجاوزت 8 ميغابايت وتم استثناؤها');
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          singleFileImages.push({
+            url: e.target.result,
+            name: file.name
+          });
+          loadedCount++;
+          if (loadedCount === selectedFiles.length) {
+            if (singleFileImages.length > 5) {
+              singleFileImages = singleFileImages.slice(0, 5);
+            }
+            renderSingleFileThumbnails();
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+
+      event.target.value = '';
+    }
+
+    function renderSingleFileThumbnails() {
+      const grid = document.getElementById('thumbnailsGrid');
+      const container = document.getElementById('imagePreviewContainer');
+      const dropzone = document.getElementById('dropzoneBox');
+      const countBadge = document.getElementById('previewCountBadge');
+      const addMoreBtn = document.getElementById('addMorePhotosBtn');
+
+      if (singleFileImages.length === 0) {
+        container.classList.add('hidden');
+        container.classList.remove('flex');
+        dropzone.classList.remove('hidden');
+        return;
+      }
+
+      dropzone.classList.add('hidden');
+      container.classList.remove('hidden');
+      container.classList.add('flex');
+
+      countBadge.textContent = `الصور المرفوعة (${singleFileImages.length} من 5)`;
+
+      if (singleFileImages.length >= 5) {
+        if (addMoreBtn) addMoreBtn.classList.add('hidden');
+      } else {
+        if (addMoreBtn) addMoreBtn.classList.remove('hidden');
+      }
+
+      grid.innerHTML = singleFileImages.map((img, idx) => `
+        <div class="relative group rounded-xl overflow-hidden border-2 bg-white aspect-square shadow-2xs ${idx === 0 ? 'border-amber-500 ring-2 ring-amber-500/20' : 'border-slate-200'}">
+          <img src="${img.url}" alt="" class="w-full h-full object-cover">
+          ${idx === 0 ? `
+            <span class="absolute top-1 right-1 bg-amber-500 text-slate-950 text-[9px] font-black px-1.5 py-0.5 rounded shadow-xs">
+              ★ رئيسية
+            </span>
+          ` : `
+            <button type="button" onclick="setPrimarySingleFileImage(${idx})" class="absolute top-1 right-1 bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-white text-[9px] font-bold px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+              اجعلها رئيسية
+            </button>
+          `}
+          <button type="button" onclick="removeSingleFileImage(${idx})" class="absolute top-1 left-1 w-5 h-5 rounded bg-red-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xs" title="حذف هذه الصورة">
+            ✕
+          </button>
+          <span class="absolute bottom-1 right-1 bg-black/60 text-white text-[8px] font-mono px-1 rounded">
+            ${idx + 1}
+          </span>
+        </div>
+      `).join('');
+    }
+
+    function removeSingleFileImage(idx) {
+      singleFileImages.splice(idx, 1);
+      renderSingleFileThumbnails();
+    }
+
+    function setPrimarySingleFileImage(idx) {
+      if (idx === 0) return;
+      const [item] = singleFileImages.splice(idx, 1);
+      singleFileImages.unshift(item);
+      renderSingleFileThumbnails();
+    }
+
+    function removeAllSingleFileImages() {
+      singleFileImages = [];
+      const fileInput = document.getElementById('merchantFileInput');
+      if (fileInput) fileInput.value = '';
+      renderSingleFileThumbnails();
+    }
+
+    function addUrlPhoto() {
+      const input = document.getElementById('newProdImage');
+      const url = input.value.trim();
+      if (!url) return;
+      if (singleFileImages.length >= 5) {
+        showToast('الحد الأقصى هو 5 صور لكل منتج');
+        return;
+      }
+      singleFileImages.push({ url, name: 'رابط خارجي' });
+      input.value = '';
+      renderSingleFileThumbnails();
+      showToast('تمت إضافة الصورة لقائمة صور المنتج');
+    }
+
+    function addPresetPhoto(url, cat) {
+      if (singleFileImages.length >= 5) {
+        showToast('الحد الأقصى هو 5 صور لكل منتج');
+        return;
+      }
+      singleFileImages.push({ url, name: 'نموذج جاهز' });
+      document.getElementById('newProdCategory').value = cat;
+      renderSingleFileThumbnails();
+      showToast('تمت إضافة النموذج لصور المنتج بنجاح');
+    }
+
+    function showToast(message) {
+      let toast = document.getElementById('appToast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'appToast';
+        toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-2xl shadow-2xl border border-slate-700 transition-all duration-300 pointer-events-none opacity-0 translate-y-4';
+        document.body.appendChild(toast);
+      }
+      toast.textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-4');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-4');
+      }, 3500);
+    }
+
+    function handleMerchantSubmit(e) {
+      e.preventDefault();
+
+      const mName = document.getElementById('merchantName').value.trim();
+      const mPhone = document.getElementById('merchantPhone').value.trim();
+      const mGovId = document.getElementById('merchantGov').value;
+      const mGov = GOVERNORATES.find(g => g.id === mGovId) || GOVERNORATES[0];
+
+      const pTitle = document.getElementById('newProdTitle').value.trim();
+      const pCat = document.getElementById('newProdCategory').value;
+      const pPrice = parseInt(document.getElementById('newProdPrice').value, 10);
+      const urlInputVal = document.getElementById('newProdImage').value.trim();
+
+      let finalImages = [];
+      if (singleFileImages.length > 0) {
+        finalImages = singleFileImages.map(img => img.url);
+      } else if (urlInputVal) {
+        finalImages = [urlInputVal];
+      } else {
+        const presets = {
+          fashion: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&auto=format&fit=crop&q=80',
+          beauty: 'https://images.unsplash.com/photo-1608248597359-00f205b38fba?w=800&auto=format&fit=crop&q=80',
+          electronics: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80',
+          home: 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=800&auto=format&fit=crop&q=80'
+        };
+        finalImages = [presets[pCat] || 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&auto=format&fit=crop&q=80'];
+      }
+
+      const pImg = finalImages[0];
+      const pDesc = document.getElementById('newProdDesc').value.trim();
+
+      const catNames = {
+        fashion: 'أزياء وملابس',
+        beauty: 'جمال وعناية بالبشرة',
+        home: 'المنزل والمطبخ',
+        electronics: 'إلكترونيات'
+      };
+
+      const newProduct = {
+        id: 'ur-merchant-' + Date.now(),
+        title: pTitle,
+        category: pCat,
+        categoryName: catNames[pCat] || 'عام',
+        price: pPrice,
+        origPrice: Math.round(pPrice * 1.25),
+        image: pImg,
+        images: finalImages,
+        badge: 'إدراج حديث ⚡',
+        vendor: {
+          name: mName,
+          phone: mPhone,
+          city: mGov.nameAr
+        }
+      };
+
+      // Add to top of products list
+      PRODUCTS.unshift(newProduct);
+
+      // Reset form & file states
+      document.getElementById('merchantForm').reset();
+      removeAllSingleFileImages();
+      closeMerchantModal();
+
+      // Show badge
+      const badge = document.getElementById('newBadgeCount');
+      if (badge) badge.classList.remove('hidden');
+
+      // Refresh UI
+      updateCategoryCounts();
+      renderProducts();
+
+      // Scroll to products section smoothly
+      document.getElementById('productsSection').scrollIntoView({ behavior: 'smooth' });
+
+      showToast(`ألف مبروك! تم إدراج "${pTitle}" بـ (${finalImages.length}) صور بنجاح في سوق أور بواسطة متجر ${mName} ⚡`);
+    }
+
+    // ==========================================
+    // RESELLER & AFFILIATE ONBOARDING ENGINE
+    // ==========================================
+    let currentSelectedExperience = 'BEGINNER';
+    let currentResellerCode = '';
+
+    function openResellerModal() {
+      const modal = document.getElementById('resellerModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+      // Initialize default JSON payload if empty
+      const jsonInput = document.getElementById('resellerJsonInput');
+      if (jsonInput && !jsonInput.value.trim()) {
+        loadJsonSample('valid');
+      }
+      updateProfitCalculation();
+    }
+
+    function closeResellerModal() {
+      const modal = document.getElementById('resellerModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function switchResellerTab(tabName) {
+      const tabs = ['form', 'calculator', 'engine'];
+      tabs.forEach(t => {
+        const pane = document.getElementById('resellerTab-' + t);
+        const btn = document.getElementById('resellerTabBtn-' + t);
+        if (pane) {
+          if (t === tabName) {
+            pane.classList.remove('hidden');
+          } else {
+            pane.classList.add('hidden');
+          }
+        }
+        if (btn) {
+          if (t === tabName) {
+            btn.className = 'py-3 px-4 border-b-2 border-amber-400 text-amber-400 flex items-center gap-2 transition-all cursor-pointer';
+          } else {
+            btn.className = 'py-3 px-4 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 transition-all cursor-pointer';
+          }
+        }
+      });
+    }
+
+    function selectExperienceLevel(level) {
+      currentSelectedExperience = level;
+      const levels = ['BEGINNER', 'INTERMEDIATE', 'EXPERT'];
+      levels.forEach(lvl => {
+        const btn = document.getElementById('expBtn-' + lvl);
+        if (btn) {
+          if (lvl === level) {
+            btn.className = 'p-3 rounded-xl border text-center transition-all cursor-pointer bg-amber-500/15 border-amber-400 text-amber-300 shadow-sm shadow-amber-500/10';
+          } else {
+            btn.className = 'p-3 rounded-xl border text-center transition-all cursor-pointer bg-[#1b1d24] border-slate-700 text-slate-400 hover:text-slate-200';
+          }
+        }
+      });
+    }
+
+    function validateIraqiResellerPhone(phone) {
+      if (!phone) return { isValid: false, normalized: '', error: 'رقم الهاتف مطلوب' };
+      const arabicDigits = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+      let clean = phone.replace(/[٠-٩]/g, d => arabicDigits.indexOf(d).toString()).trim().replace(/[\s\-\(\)\+]/g, '');
+      if (clean.startsWith('964')) clean = '0' + clean.slice(3);
+      else if (clean.startsWith('00964')) clean = '0' + clean.slice(5);
+
+      const iraqiPhoneRegex = /^07[5789]\d{8}$/;
+      if (!iraqiPhoneRegex.test(clean)) {
+        return { isValid: false, normalized: clean, error: 'يجب أن يكون رقم الهاتف مكوناً من 11 رقماً ويبدأ بـ (077 أو 078 أو 075 أو 079)' };
+      }
+      return { isValid: true, normalized: clean };
+    }
+
+    function validateIraqiResellerProvince(province) {
+      if (!province || !province.trim()) return { isValid: false, matchedNameAr: '', error: 'يرجى اختيار أو تحديد المحافظة' };
+      const pClean = province.trim().toLowerCase().replace(/^(محافظة|مدينة|ولاية|province|governorate)\s+/i, '').trim();
+
+      const aliases = {
+        'بغداد': 'بغداد (العاصمة)', 'baghdad': 'بغداد (العاصمة)',
+        'البصرة': 'البصرة', 'بصرة': 'البصرة', 'basra': 'البصرة',
+        'أربيل': 'أربيل', 'اربيل': 'أربيل', 'erbil': 'أربيل',
+        'نينوى': 'نينوى (الموصل)', 'الموصل': 'نينوى (الموصل)', 'موصل': 'نينوى (الموصل)', 'nineveh': 'نينوى (الموصل)', 'mosul': 'نينوى (الموصل)',
+        'كركوك': 'كركوك', 'kirkuk': 'كركوك',
+        'النجف': 'النجف الأشرف', 'نجف': 'النجف الأشرف', 'najaf': 'النجف الأشرف',
+        'كربلاء': 'كربلاء المقدسة', 'karbala': 'كربلاء المقدسة',
+        'ذي قار': 'ذي قار (الناصرية)', 'الناصرية': 'ذي قار (الناصرية)', 'ناصرية': 'ذي قار (الناصرية)', 'dhi qar': 'ذي قار (الناصرية)',
+        'بابل': 'بابل (الحلة)', 'الحلة': 'بابل (الحلة)', 'حلة': 'بابل (الحلة)', 'babylon': 'بابل (الحلة)',
+        'الأنبار': 'الأنبار (الرمادي / الفلوجة)', 'الانبار': 'الأنبار (الرمادي / الفلوجة)', 'الرمادي': 'الأنبار (الرمادي / الفلوجة)', 'anbar': 'الأنبار (الرمادي / الفلوجة)',
+        'السليمانية': 'السليمانية', 'سليمانية': 'السليمانية', 'sulaymaniyah': 'السليمانية',
+        'دهوك': 'دهوك', 'duhok': 'دهوك',
+        'ديالى': 'ديالى (بعقوبة)', 'بعقوبة': 'ديالى (بعقوبة)', 'diyala': 'ديالى (بعقوبة)',
+        'صلاح الدين': 'صلاح الدين (تكريت)', 'تكريت': 'صلاح الدين (تكريت)', 'saladin': 'صلاح الدين (تكريت)',
+        'واسط': 'واسط (الكوت)', 'الكوت': 'واسط (الكوت)', 'كوت': 'واسط (الكوت)', 'wasit': 'واسط (الكوت)',
+        'ميسان': 'ميسان (العمارة)', 'العمارة': 'ميسان (العمارة)', 'عمارة': 'ميسان (العمارة)', 'maysan': 'ميسان (العمارة)',
+        'القادسية': 'القادسية (الديوانية)', 'قادسية': 'القادسية (الديوانية)', 'الديوانية': 'القادسية (الديوانية)', 'diwaniyah': 'القادسية (الديوانية)',
+        'المثنى': 'المثنى (السماوة)', 'مثنى': 'المثنى (السماوة)', 'السماوة': 'المثنى (السماوة)', 'muthanna': 'المثنى (السماوة)'
+      };
+
+      if (aliases[pClean]) return { isValid: true, matchedNameAr: aliases[pClean] };
+
+      const matched = GOVERNORATES.find(g => g.nameAr.includes(pClean) || pClean.includes(g.nameAr.split(' ')[0]) || g.id === pClean);
+      if (matched) return { isValid: true, matchedNameAr: matched.nameAr };
+
+      return { isValid: false, matchedNameAr: '', error: 'المحافظة المدخلة غير معتمدة ضمن محافظات العراق الـ 18' };
+    }
+
+    function processResellerRegistrationObject(input) {
+      const errors = {};
+      const nameTrimmed = (input.full_name || '').trim();
+      const nameParts = nameTrimmed.split(/\s+/).filter(p => p.length >= 2);
+      if (!nameTrimmed) errors.full_name = 'الاسم الكامل مطلوب';
+      else if (nameParts.length < 2) errors.full_name = 'يجب إدخال الاسم الكامل (الاسم الثنائي أو الثلاثي على الأقل)';
+
+      const phoneVal = validateIraqiResellerPhone(input.phone_number);
+      if (!phoneVal.isValid) errors.phone_number = phoneVal.error;
+
+      const provVal = validateIraqiResellerProvince(input.province);
+      if (!provVal.isValid) errors.province = provVal.error;
+
+      const channelTrimmed = (input.sales_channel || '').trim();
+      if (!channelTrimmed || channelTrimmed.length < 2) {
+        errors.sales_channel = 'يرجى تحديد قناة البيع الأساسية (مثال: صفحة انستغرام، تيك توك، واتساب، بيع مباشر)';
+      }
+
+      const allowedExp = ['BEGINNER', 'INTERMEDIATE', 'EXPERT'];
+      if (!input.experience_level || !allowedExp.includes(input.experience_level)) {
+        errors.experience_level = 'يرجى تحديد مستوى الخبرة في التسويق (مبتدئ / متوسط / محترف)';
+      }
+
+      if (input.agreed_terms !== true) {
+        errors.agreed_terms = 'يجب الموافقة على شروط وأحكام شبكة المسوقين في سوق أور للاستمرار';
+      }
+
+      const isValid = Object.keys(errors).length === 0;
+      const now = new Date().toISOString();
+
+      if (!isValid) {
+        return {
+          isValid: false,
+          status: 'REJECTED',
+          errors: errors,
+          message_ar: 'تعذر قبول الطلب لاحتوائه على بيانات غير مكتملة أو غير مطابقة لشروط الانضمام لشبكة مسوقي سوق أور.',
+          timestamp: now
+        };
+      }
+
+      const resellerId = 'UR-MND-' + Math.floor(1000 + Math.random() * 9000);
+      const wholesaleMargins = {
+        BEGINNER: '20% - 35% هامش ربح للمنتج الواحد',
+        INTERMEDIATE: '25% - 45% + أسعار جملة حصرية للكميات',
+        EXPERT: '35% - 55% + مدير حساب وتوصيل VIP ذو أولوية'
+      };
+
+      return {
+        isValid: true,
+        status: 'APPROVED_INSTANT',
+        reseller_id: resellerId,
+        errors: {},
+        message_ar: `أهلاً بك يا ${nameParts[0]}! تم قبولك فورياً كمسوق معتمد في سوق أور. يمكنك البدء في بيع المنتجات بدون أي رأس مال مع ضمان تحصيل أرباحك عند كل توصيل ناجح.`,
+        details: {
+          full_name: nameTrimmed,
+          phone_number: phoneVal.normalized,
+          province: provVal.matchedNameAr,
+          sales_channel: channelTrimmed,
+          experience_level: input.experience_level,
+          wholesale_margin_estimate: wholesaleMargins[input.experience_level] || '25% - 40%',
+          next_step_ar: 'تصفح كتالوج المنتجات، حمل صور المحتوى بدون علامة مائية، وشارك أسعار البيع المقترحة مع زبائنك.'
+        },
+        timestamp: now
+      };
+    }
+
+    function handleResellerFormSubmit(event) {
+      event.preventDefault();
+      const errBox = document.getElementById('resellerFormErrors');
+      errBox.classList.add('hidden');
+      errBox.innerHTML = '';
+
+      const payload = {
+        full_name: document.getElementById('resellerFullName').value,
+        phone_number: document.getElementById('resellerPhone').value,
+        province: document.getElementById('resellerProvince').value,
+        sales_channel: document.getElementById('resellerChannel').value,
+        experience_level: currentSelectedExperience,
+        agreed_terms: document.getElementById('resellerTermsCheck').checked
+      };
+
+      const result = processResellerRegistrationObject(payload);
+
+      if (!result.isValid) {
+        errBox.classList.remove('hidden');
+        const errList = Object.values(result.errors).map(msg => `<li>• ${msg}</li>`).join('');
+        errBox.innerHTML = `<span class="font-bold block mb-1">تنبيه بالتحقق من البيانات:</span><ul class="space-y-1">${errList}</ul>`;
+        return;
+      }
+
+      // Display Success Screen
+      currentResellerCode = result.reseller_id;
+      document.getElementById('resellerMainForm').classList.add('hidden');
+      document.getElementById('resellerSuccessScreen').classList.remove('hidden');
+      document.getElementById('resellerGeneratedCode').textContent = result.reseller_id;
+      document.getElementById('resellerSuccessMsg').textContent = result.message_ar;
+      document.getElementById('resellerMarginEstimate').textContent = result.details.wholesale_margin_estimate;
+
+      showToast(`أهلاً بك يا ${result.details.full_name}! تم اعتمادك كمسوق معتمد (#${result.reseller_id})`);
+    }
+
+    function resetResellerFormUI() {
+      document.getElementById('resellerMainForm').reset();
+      document.getElementById('resellerMainForm').classList.remove('hidden');
+      document.getElementById('resellerSuccessScreen').classList.add('hidden');
+      document.getElementById('resellerFormErrors').classList.add('hidden');
+      selectExperienceLevel('BEGINNER');
+    }
+
+    function copyResellerCode() {
+      if (!currentResellerCode) return;
+      navigator.clipboard.writeText(currentResellerCode);
+      const btn = document.getElementById('copyResellerBtn');
+      btn.textContent = 'تم النسخ ✓';
+      setTimeout(() => { btn.textContent = 'نسخ الكود'; }, 2000);
+    }
+
+    function updateProfitCalculation() {
+      const ordersSlider = document.getElementById('calcOrdersSlider');
+      const profitSlider = document.getElementById('calcProfitSlider');
+      if (!ordersSlider || !profitSlider) return;
+
+      const orders = parseInt(ordersSlider.value, 10);
+      const profit = parseInt(profitSlider.value, 10);
+
+      document.getElementById('calcOrdersDisplay').textContent = orders + ' طلب';
+      document.getElementById('calcProfitDisplay').textContent = profit.toLocaleString() + ' د.ع';
+
+      const total = orders * profit;
+      document.getElementById('calcTotalNetProfit').textContent = total.toLocaleString() + ' د.ع';
+    }
+
+    function loadJsonSample(type) {
+      let sample = {};
+      if (type === 'valid') {
+        sample = {
+          full_name: 'كرار حيدر الجبوري',
+          phone_number: '07801987654',
+          province: 'البصرة',
+          sales_channel: 'TikTok Shop & Live',
+          experience_level: 'EXPERT',
+          agreed_terms: true
+        };
+      } else if (type === 'invalid_phone') {
+        sample = {
+          full_name: 'أحمد سامي',
+          phone_number: '0123456789',
+          province: 'أربيل',
+          sales_channel: 'WhatsApp Groups',
+          experience_level: 'BEGINNER',
+          agreed_terms: true
+        };
+      } else if (type === 'missing_terms') {
+        sample = {
+          full_name: 'مريم الصالحي',
+          phone_number: '07712345678',
+          province: 'النجف الأشرف',
+          sales_channel: 'Facebook Marketplace',
+          experience_level: 'INTERMEDIATE',
+          agreed_terms: false
+        };
+      }
+
+      document.getElementById('resellerJsonInput').value = JSON.stringify(sample, null, 2);
+      executeJsonEngine();
+    }
+
+    function executeJsonEngine() {
+      const inputStr = document.getElementById('resellerJsonInput').value;
+      const outputContainer = document.getElementById('resellerJsonOutputContainer');
+      const outputPre = document.getElementById('resellerJsonOutput');
+
+      let responseObj = null;
+      try {
+        const parsed = JSON.parse(inputStr);
+        responseObj = processResellerRegistrationObject(parsed);
+      } catch (err) {
+        responseObj = {
+          isValid: false,
+          status: 'REJECTED',
+          error_type: 'INVALID_JSON_PAYLOAD',
+          message_ar: 'البيانات المدخلة ليست بصيغة JSON صالحة.',
+          details: err.message
+        };
+      }
+
+      outputPre.textContent = JSON.stringify(responseObj, null, 2);
+      outputContainer.classList.remove('hidden');
+    }
+
+    function copyJsonOutput() {
+      const outputPre = document.getElementById('resellerJsonOutput');
+      if (!outputPre) return;
+      navigator.clipboard.writeText(outputPre.textContent);
+      const btn = document.getElementById('copyJsonOutputBtn');
+      btn.textContent = 'تم النسخ ✓';
+      setTimeout(() => { btn.textContent = 'نسخ الاستجابة'; }, 2000);
+    }
+
+    // Setup event listeners
+    document.getElementById('searchInput').addEventListener('input', renderProducts);
+
+    // Initial render
+    populateGovernorates();
+    updateCategoryCounts();
+    renderProducts();
+  </script>
+</body>
+</html>

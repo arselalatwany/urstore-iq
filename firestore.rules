@@ -1,0 +1,135 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 1. Global default-deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'rara871xx@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    // Reseller validation
+    function isValidReseller(data) {
+      return data.keys().hasAll(['userId', 'resellerCode', 'fullName', 'phoneNumber', 'province', 'salesChannel', 'status', 'agreedTerms'])
+        && data.userId is string && data.userId.size() <= 128
+        && data.resellerCode is string && data.resellerCode.size() <= 64
+        && data.fullName is string && data.fullName.size() >= 3 && data.fullName.size() <= 100
+        && data.phoneNumber is string && data.phoneNumber.size() <= 20
+        && data.province is string && data.province.size() <= 60
+        && data.salesChannel is string && data.salesChannel.size() <= 100
+        && data.agreedTerms == true
+        && (data.status in ['APPROVED_INSTANT', 'PENDING_REVIEW', 'SUSPENDED']);
+    }
+
+    // Order validation
+    function isValidOrder(data) {
+      return data.keys().hasAll(['orderId', 'customerName', 'customerPhone', 'governorateId', 'detailedAddress', 'status', 'subtotal', 'deliveryFee', 'total'])
+        && data.orderId is string && data.orderId.size() <= 64
+        && data.customerName is string && data.customerName.size() >= 2 && data.customerName.size() <= 100
+        && data.customerPhone is string && data.customerPhone.size() <= 20
+        && data.governorateId is string && data.governorateId.size() <= 50
+        && data.detailedAddress is string && data.detailedAddress.size() <= 300
+        && data.subtotal is number && data.subtotal >= 0
+        && data.deliveryFee is number && data.deliveryFee >= 0
+        && data.total is number && data.total >= 0
+        && (data.status in ['Pending', 'Shipped', 'Delivered', 'Cancelled']);
+    }
+
+    // Custom Product validation
+    function isValidProduct(data) {
+      return data.keys().hasAll(['id', 'title', 'category', 'price', 'image', 'inStock'])
+        && data.id is string && data.id.size() <= 128
+        && data.title is string && data.title.size() <= 200
+        && data.category is string && (data.category in ['fashion', 'beauty', 'home', 'electronics'])
+        && data.price is number && data.price > 0
+        && data.image is string && data.image.size() <= 1500
+        && data.inStock is bool;
+    }
+
+    // 2. Resellers Collection
+    match /resellers/{userId} {
+      allow get: if isValidId(userId) && (isOwner(userId) || isAdmin());
+      allow list: if isAdmin();
+      
+      allow create: if isValidId(userId) 
+        && isOwner(userId)
+        && request.resource.data.userId == request.auth.uid
+        && isValidReseller(request.resource.data);
+
+      allow update: if isValidId(userId) && (
+        isAdmin() || (
+          isOwner(userId)
+          && request.resource.data.userId == resource.data.userId
+          && isValidReseller(request.resource.data)
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+            'fullName', 'phoneNumber', 'province', 'salesChannel', 'experienceLevel', 'agreedTerms', 'updatedAt'
+          ])
+        )
+      );
+
+      allow delete: if isAdmin();
+    }
+
+    // 3. Orders Collection
+    match /orders/{orderId} {
+      allow get: if isValidId(orderId);
+      allow list: if true;
+
+      allow create: if isValidId(orderId)
+        && isValidOrder(request.resource.data);
+
+      allow update: if isValidId(orderId) && (
+        isAdmin() || (
+          isValidOrder(request.resource.data)
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'updatedAt'])
+        )
+      );
+
+      allow delete: if isAdmin();
+    }
+
+    // 4. Products Collection
+    match /products/{productId} {
+      allow get: if isValidId(productId);
+      allow list: if true;
+
+      allow create: if isValidId(productId)
+        && (isSignedIn() || isAdmin())
+        && isValidProduct(request.resource.data);
+
+      allow update: if isValidId(productId) && (
+        isAdmin() || (
+          isSignedIn()
+          && isValidProduct(request.resource.data)
+        )
+      );
+
+      allow delete: if isAdmin();
+    }
+
+    // Admins Collection
+    match /admins/{adminId} {
+      allow read: if isSignedIn();
+      allow write: if false; // Only manageable via console
+    }
+  }
+}

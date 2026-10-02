@@ -1,0 +1,218 @@
+{
+  "entities": {
+    "Reseller": {
+      "title": "Reseller",
+      "description": "Registered UR Store affiliate reseller (Mandoob) profile",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User ID of the reseller matching auth.uid"
+        },
+        "resellerCode": {
+          "type": "string",
+          "description": "Unique assigned reseller code, e.g. UR-MND-4821"
+        },
+        "fullName": {
+          "type": "string",
+          "description": "Full name with minimum 2 words"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "11-digit Iraqi mobile phone number"
+        },
+        "province": {
+          "type": "string",
+          "description": "Recognized Iraqi governorate"
+        },
+        "salesChannel": {
+          "type": "string",
+          "description": "Primary sales channel (Instagram, TikTok, WhatsApp, etc.)"
+        },
+        "experienceLevel": {
+          "type": "string",
+          "enum": ["BEGINNER", "INTERMEDIATE", "EXPERT"],
+          "description": "Affiliate selling experience tier"
+        },
+        "agreedTerms": {
+          "type": "boolean",
+          "description": "Terms of service acceptance flag"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["APPROVED_INSTANT", "PENDING_REVIEW", "SUSPENDED"],
+          "description": "Reseller authorization status"
+        },
+        "earnedBalance": {
+          "type": "number",
+          "description": "Total earned and credited commission in IQD"
+        },
+        "pendingPayout": {
+          "type": "number",
+          "description": "Pending commission currently in transit / pending delivery"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp ISO string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp ISO string"
+        }
+      },
+      "required": ["userId", "resellerCode", "fullName", "phoneNumber", "province", "salesChannel", "status", "agreedTerms"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer purchase order in UR Store with dropshipping / reseller tracking",
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "description": "Human-readable order tracking ID, e.g. UR-8921"
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Customer full name"
+        },
+        "customerPhone": {
+          "type": "string",
+          "description": "Customer 11-digit Iraqi phone number"
+        },
+        "governorateId": {
+          "type": "string",
+          "description": "Iraqi governorate identifier"
+        },
+        "governorateNameAr": {
+          "type": "string",
+          "description": "Arabic governorate name"
+        },
+        "detailedAddress": {
+          "type": "string",
+          "description": "Full street and neighborhood address"
+        },
+        "nearestLandmark": {
+          "type": "string",
+          "description": "Prominent landmark for Iraqi courier delivery"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Special delivery notes or customer instructions"
+        },
+        "resellerId": {
+          "type": "string",
+          "description": "Optional auth UID of the affiliate reseller who referred this order"
+        },
+        "resellerCode": {
+          "type": "string",
+          "description": "Optional referral code of the reseller, e.g. UR-MND-4821"
+        },
+        "resellerCommission": {
+          "type": "number",
+          "description": "Calculated reseller profit (Retail Price - Reseller Wholesale Cost) in IQD"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["Pending", "Shipped", "Delivered", "Cancelled"],
+          "description": "Live fulfillment state: Pending -> Shipped -> Delivered -> Cancelled"
+        },
+        "subtotal": {
+          "type": "number",
+          "description": "Total cart items price in IQD"
+        },
+        "deliveryFee": {
+          "type": "number",
+          "description": "Courier shipping fee in IQD"
+        },
+        "total": {
+          "type": "number",
+          "description": "Final cash-on-delivery payable amount in IQD"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Order creation timestamp"
+        }
+      },
+      "required": ["orderId", "customerName", "customerPhone", "governorateId", "detailedAddress", "status", "subtotal", "deliveryFee", "total"]
+    },
+    "CustomProduct": {
+      "title": "CustomProduct",
+      "description": "Merchant-listed or reseller-shared product on UR Store catalog",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique product ID"
+        },
+        "title": {
+          "type": "string",
+          "description": "Arabic product title"
+        },
+        "titleEn": {
+          "type": "string",
+          "description": "English product title"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["fashion", "beauty", "home", "electronics"],
+          "description": "Catalog category"
+        },
+        "categoryNameAr": {
+          "type": "string",
+          "description": "Arabic category label"
+        },
+        "price": {
+          "type": "number",
+          "description": "Selling retail price in IQD"
+        },
+        "resellerCost": {
+          "type": "number",
+          "description": "Wholesale cost for resellers in IQD"
+        },
+        "originalPrice": {
+          "type": "number",
+          "description": "Crossed-out list price in IQD"
+        },
+        "image": {
+          "type": "string",
+          "description": "Primary high-res image URL"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed Iraqi market description"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Customer star rating (1-5)"
+        },
+        "inStock": {
+          "type": "boolean",
+          "description": "Inventory stock availability"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp"
+        }
+      },
+      "required": ["id", "title", "category", "price", "image", "inStock"]
+    }
+  },
+  "firestore": {
+    "/resellers/{userId}": {
+      "schema": { "$ref": "#/entities/Reseller" },
+      "description": "Affiliate reseller profile documents indexed by user UID"
+    },
+    "/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/Order" },
+      "description": "E-commerce customer orders with live status tracking and commission tracking"
+    },
+    "/products/{productId}": {
+      "schema": { "$ref": "#/entities/CustomProduct" },
+      "description": "Merchant products synced to Firestore catalog"
+    }
+  }
+}

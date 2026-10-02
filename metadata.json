@@ -1,0 +1,6 @@
+{
+  "name": "UR Store - Iraqi E-Commerce",
+  "description": "Modern Iraqi e-commerce store with 18 governorates fast delivery, cash on delivery, and instant WhatsApp checkout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
